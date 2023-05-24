@@ -13,3 +13,4 @@ gitpython
 nest-asyncio
 dill
 nltk
+scikit-learn
