@@ -19,7 +19,7 @@ class ConfigWeb:
 
 @dataclass
 class ConfigDatabase:
-    models: list[str]
+    models: list = None
     protocol: str = "sqlite"
     file_name: str = "production-database.sqlite3"
     user: str = None
