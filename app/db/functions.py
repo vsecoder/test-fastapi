@@ -35,7 +35,7 @@ class Messages(models.Messages):
     
 
     @classmethod
-    async def get_history(cls) -> list[dict]:
+    async def get_history(cls) -> list:
         """
         Get history.
         :return: History.
