@@ -1,6 +1,6 @@
 import asyncio
 import logging
-#import git
+import git
 import uvicorn
 
 import coloredlogs
@@ -54,15 +54,14 @@ async def main():
     except FileExistsError:
         await db.migrate_models(tortoise_config)
 
-    #repo = git.Repo()
-    #build = repo.heads[0].commit.hexsha
-    #diff = repo.git.log([f"HEAD..origin/{version.branch}", "--oneline"])
-    #upd = "Update required" if diff else "Up-to-date"
+    repo = git.Repo()
+    build = repo.heads[0].commit.hexsha
+    diff = repo.git.log([f"HEAD..origin/{version.branch}", "--oneline"])
+    upd = "Update required" if diff else "Up-to-date"
 
     start_time = datetime.now()
 
-    #context_kwargs = {"build": build, "upd": upd, "start_time": start_time}
-    context_kwargs = {"start_time": start_time, "build": "build", "upd": "upd"}
+    context_kwargs = {"build": build, "upd": upd, "start_time": start_time}
 
     disp = dispatcher(context_kwargs)
 
